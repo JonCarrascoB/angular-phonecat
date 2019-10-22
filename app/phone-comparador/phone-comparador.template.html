@@ -3,9 +3,13 @@
   <div class="row">
     <div class="col-md-2">
     <h4>Listado Movil</h4>
+    <p>
+      Search:
+      <input ng-model="$ctrl.query"/>
+    </p>
     <ul class="list-group">
       <li class="list-group-item" 
-          ng-repeat="phone in $ctrl.phones"
+          ng-repeat="phone in $ctrl.phones | filter:$ctrl.query"
           ng-click="$ctrl.seleccionar(phone)">
         <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" class="responsive">
         {{phone.name}}
@@ -28,7 +32,7 @@
             </div> 
         </div>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 pb-2">
         <h3 class="text-center">{{$ctrl.phone2.name}}</h3>
         <img ng-src="{{$ctrl.phone2.imageUrl}}" alt="{{$ctrl.phone2.name}}" class="responsive">
         <div class="row text-center" ng-show="(($ctrl.phone2.name)?true:false)">

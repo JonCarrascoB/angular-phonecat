@@ -9,11 +9,12 @@ angular.
       function PhoneDetailController($routeParams, Phone, $location) {
         var self = this;
         self.mensaje = "";
-        self.phone = Phone.get({phoneId: $routeParams.phoneId}, 
+        self.phone = Phone.get(
+          {phoneId: $routeParams.phoneId}, 
           function(phone) {
           self.setImage(phone.images[0]);
         },
-        function(r){
+        function(){
           // cambiar url
           console.warn('No encontrado movil ' + $routeParams.phoneId);
           $location.url('/404');

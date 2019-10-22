@@ -1,0 +1,60 @@
+{
+    "additionalFeatures": "Moto G2, Moto G+1, Moto G (2014), Moto G (2014) DTV", 
+    "android": {
+        "os": "Android 6.0 marshmallow", 
+        "ui": "MOTOBLUR\u2122"
+    }, 
+    "availability": [
+        "AT&T"
+    ], 
+    "battery": {
+        "standbyTime": "216 hours", 
+        "talkTime": "6 hours", 
+        "type": "Lithium Ion (Li-Ion) (1540 mAH)"
+    }, 
+    "camera": {
+        "features": [
+            "Video"
+        ], 
+        "primary": "5.0 megapixels"
+    }, 
+    "connectivity": {
+        "bluetooth": "Bluetooth 2.1", 
+        "cell": "WCDMA 850/1900, GSM 850/900/1800/1900, HSDPA 7.2 Mbps (Category 7/8), EDGE Class 12, GPRS Class 12, HSUPA 2.0 Mbps", 
+        "gps": true, 
+        "infrared": false, 
+        "wifi": "4G"
+    }, 
+    "description": "MOTOROLA BRAVO\u2122 with MOTOBLUR\u2122 with its large 3.7-inch touchscreen and web-browsing capabilities is sure to make an impression.  And it keeps your life updated and secure through MOTOBLUR.", 
+    "display": {
+        "screenResolution": " HD (720 x 1280)", 
+        "screenSize": "5 inches", 
+        "touchScreen": true
+    }, 
+    "hardware": {
+        "accelerometer": true, 
+        "audioJack": "3.5mm", 
+        "cpu": "1.2 GHz", 
+        "fmRadio": true, 
+        "physicalKeyboard": false, 
+        "usb": "USB 2.0"
+    }, 
+    "id": "motorola-moto-g2", 
+    "images": [
+        "img/phones/MotorolaMotoG2.jpg",
+        "img/phones/motog2-funda.jpg"
+    ], 
+    "name": "Moto G2, Moto G+1, Moto G (2014), Moto G (2014) DTV", 
+    "sizeAndWeight": {
+        "dimensions": [
+            "70.7  mm (w)", 
+            "141.5 mm (h)", 
+            " 11.0 mm (d)"
+        ], 
+        "weight": "149.0 grams"
+    }, 
+    "storage": {
+        "flash": "", 
+        "ram": "1 GB"
+    }
+}

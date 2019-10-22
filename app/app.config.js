@@ -11,6 +11,12 @@ angular.
         when('/phones/:phoneId', {
           template: '<phone-detail></phone-detail>'
         }).
+        when('/404', {
+          templateUrl: 'error/404.html'
+        }).
+        when('/comparador', {
+          template: '<phone-comparador></phone-comparador>'
+        }).
         otherwise('/phones');
     }
   ]);

@@ -5,11 +5,22 @@ angular.
   module('phoneDetail').
   component('phoneDetail', {
     templateUrl: 'phone-detail/phone-detail.template.html',
-    controller: ['$routeParams', 'Phone',
-      function PhoneDetailController($routeParams, Phone) {
+    controller: ['$routeParams', 'Phone','$location',
+      function PhoneDetailController($routeParams, Phone, $location) {
         var self = this;
-        self.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
+        self.mensaje = "";
+        self.phone = Phone.get({phoneId: $routeParams.phoneId}, 
+          function(phone) {
           self.setImage(phone.images[0]);
+        },
+        function(r){
+          // cambiar url
+          console.warn('No encontrado movil ' + $routeParams.phoneId);
+          $location.url('/404');
+          /*
+          // cambio en templeta
+          self.mensaje = "404 - "+ $routeParams.phoneId+ "- Movil no encontrado";
+          */
         });
 
         self.setImage = function setImage(imageUrl) {

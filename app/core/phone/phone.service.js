@@ -8,7 +8,7 @@ angular.
         query: {
           method: 'GET',
           //  params: {phoneId: 'phones'},
-          params: {phoneId: 'phonesTotal'},
+          params: {phoneId: 'phones'},
           isArray: true
         }
       });

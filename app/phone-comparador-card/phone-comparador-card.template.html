@@ -1,4 +1,9 @@
-<div class="thumbnail text-center" ng-show="(($ctrl.mostrar.name)?true:false)">
+<!-- ng-show="(($ctrl.mostrar.name)?true:false)" -->
+<div class="thumbnail text-center" ng-if="!$ctrl.mostrar.name">
+    <h3>Seleccione un telefono a comparar</h3>
+    <img ng-src="./img/phones/telefono.png" alt="Telefono no seleccionado">
+</div>  
+<div class="thumbnail text-center" ng-if="$ctrl.mostrar.name">
         <img ng-src="{{$ctrl.mostrar.imageUrl}}" alt="{{$ctrl.mostrar.id}}">
         <div class="caption">
           <h3>{{$ctrl.mostrar.id}}</h3>
@@ -9,12 +14,15 @@
             <li class="list-group-item">
                 Flash {{$ctrl.mostrar.storage.flash}} MB
                 <ip-comparar v1="{{$ctrl.mostrar.storage.flash}}" v2="{{$ctrl.comparar.storage.flash}}" mostrar="{{$ctrl.comparar.name}}"></ip-comparar>
+                <!--
+                <span ng-show="(()?true:false)" class="label label-{{ ($ctrl.mostrar.storage.flash >= $ctrl.comparar.storage.flash)?'success':'danger' }}">{{ $ctrl.mostrar.storage.flash - $ctrl.comparar.storage.flash}}</span>
+                -->
             </li>
             <li class="list-group-item">
                 Ram {{$ctrl.mostrar.storage.ram}} MB
                 <ip-comparar v1="{{$ctrl.mostrar.storage.ram}}" v2="{{$ctrl.comparar.storage.ram}}" mostrar="{{$ctrl.comparar.name}}"></ip-comparar>
             </li>                
         </ul>
-        <button type="button" class="btn btn-success" ng-click="comprar($ctrl.mostrar.id)">Comprar</button>
+        <button type="button" class="btn btn-success" ng-click="$ctrl.comprar($ctrl.mostrar.name)">Comprar</button>
 </div>
 <!--  -->

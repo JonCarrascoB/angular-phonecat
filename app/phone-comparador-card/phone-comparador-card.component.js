@@ -6,25 +6,27 @@ angular.
         mostrar :'=',
         comparar :'='
     },
-    controller: ['Phone', '$scope',
-      function PhoneComparadorCardController(Phone, $scope) {
+    controller: ['Phone', '$scope','compraMovil',
+      function PhoneComparadorCardController(Phone, $scope, compraMovil) {
         console.trace('PhoneComparadorCardController');
-
-        $scope.id = "";
-        $scope.comprar = function(id){
-          console.trace('click en el btn comprar');
-          $scope.$emit('comprar', {
-            id: $scope.id
-           
-          })
-        }
-
+        var self = this;
         
+        // envio al padre
+        self.comprar = function(movil){
+          console.trace('click boton compra %o', self.mostrar);
+          $scope.$emit('eventoComprar', {
+            telefono: self.mostrar
+          });
+
+          compraMovil.setProducto(self.mostrar);
+        }
 
       }
     ]
 })
-
+/**
+ * Directiva personalizada para mostrar la comparacion del "Flash" y el "RAM" de los phones
+ */
 .directive("ipComparar",[function(comparar, mostrar) {
    
     var directiveDefinitionObject ={

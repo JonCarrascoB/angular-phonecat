@@ -1,12 +1,12 @@
 <h2>Comparador</h2>
 <div class="container-fluid">
   <div class="row">
-      <!-- 1 columna -->
+      <!-- 1ยบ columna -->
         <div class="col-md-2">
           <h4>Listado Movil</h4>
           <p>
               Search:
-              <input ng-model="$ctrl.query"/>
+              <input ng-model="$ctrl.query.id"/>
           </p>
           <ul class="list-group">
               <li class="list-group-item" 
@@ -14,20 +14,28 @@
                   ng-click="$ctrl.seleccionar(phone)">
                       <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" class="responsive">
                       {{phone.name}}
+                      <div class="alert alert-danger alert-dismissible" role="alert" ng-show="($ctrl.alertaId == phone.id)">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <strong>Atencion</strong> Este telefono quiere ser comprado.
+                      </div>
               </li>
           </ul>
-          <div class="alert alert-danger alert-dismissible" role="alert" ng-show="alertaCompra">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Atencion</strong> Este telefono quiere ser comprado.
-          </div>
+          
         </div> 
-      <!-- 2 columna -->
-        <div class="col-md-5">
+      <!-- 2ยบ columna -->
+        <div class="col-md-4">
           <phone-comparador-card mostrar="$ctrl.phone1" comparar="$ctrl.phone2"></phone-comparador-card>
         </div>
-      <!-- 3 columna -->
-        <div class="col-md-5 pb-2">
+          <!-- 3ยบ columna -->
+        <div class="col-md-4">
           <phone-comparador-card mostrar="$ctrl.phone2" comparar="$ctrl.phone1"></phone-comparador-card>
+        </div>
+        <!-- 4 columna -->
+        <div class="col-md-2">
+            <h4>Moviles comprados</h4>
+            <ul class="list-group"> 
+               <li class="list-group-item" ng-repeat="movil in $ctrl.comprarMovil() track by $index">{{movil.id}}</li> 
+            </ul>
         </div>
   </div> <!-- end row -->
 

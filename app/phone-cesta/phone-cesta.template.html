@@ -1,5 +1,7 @@
 <div class="container-fluid">
     <h1>Listado de los moviles comprados</h1>
+    {{$ctrl.comprarMovil}}
+
     <table class="table table-striped">
         <thead class="thead-dark">
             <th>Movil</th>
@@ -9,7 +11,7 @@
             <th></th>
         </thead>
         <tbody>
-            <tr class="test-center" ng-repeat="movil in $ctrl.comprarMovil() track by $index">
+            <tr class="text-center" ng-repeat="movil in $ctrl.comprarMovil() track by $index">
                 <td><img ng-src="{{movil.imageUrl}}" alt="{{movil.name}}" width="150px"></td>
                 <td>{{movil.name}}</td>
                 <td>
@@ -18,7 +20,7 @@
                         <li>RAM: {{movil.storage.ram}} MB</li>
                     </ul>
                 </td>
-                <td class="danger"></td>
+                <td class="danger">{{movil.cantidad}}</td>
                 <td><button type="button" class="btn btn-danger" ng-click="$ctrl.eliminar($ctrl.movil.id)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
             </tr>
         </tbody>

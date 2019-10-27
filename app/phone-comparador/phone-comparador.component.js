@@ -11,12 +11,14 @@ angular.
 
         var self = this;
 
-        self.phones = Phone.query()
+        //self.phones = Phone.query()
         self.phone1 = {};
         self.phone2 = {};
+        self.clic = 0;
         self.orderProp = 'age';
 
-        
+        Phone.getAll().then ((res)=> self.phones = res.data);
+
          self.seleccionar = function(phone){
             console.trace('movil seleccionado');
             self.phone2 = self.phone1;

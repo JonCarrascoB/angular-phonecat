@@ -17,7 +17,6 @@ angular.
           $scope.$emit('eventoComprar', {
             telefono: self.mostrar
           });
-
           compraMovil.setProducto(self.mostrar);
         }
 

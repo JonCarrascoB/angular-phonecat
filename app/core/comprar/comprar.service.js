@@ -5,17 +5,22 @@ core.factory('compraMovil',
       
       return {
         
-        producto: [],
-        cantidad: 0,
+        productos: new Map(),
         getProducto: function() {
-            return (this.producto && this.cantidad);
+          console.debug('getproductos %s',this.productos.size);
+            return Array.from(this.productos.values()); 
         },
         setProducto: function(movil) {
-          if(this.producto.get(movil.id)){
-            this.cantidad = this.cantidad + 1;
+          if( this.productos.get(movil.id) != undefined ){
+            this.productos.get(movil.id).cantidad++;
           } else {
-            this.producto.push(movil);
-            this.cantidad = 1;
+            this.productos.set(movil.id, {"cantidad":1, 
+                                          "imagen": movil.imageUrl, 
+                                          "id":movil.id,
+                                          "name":movil.name,
+                                          "flash":movil.storage.flash,
+                                          "ram":movil.storage.ram
+                                        });
           }
            
         }

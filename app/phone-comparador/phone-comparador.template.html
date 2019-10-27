@@ -34,7 +34,7 @@
         <div class="col-md-2">
             <h4>Moviles comprados</h4>
             <ul class="list-group"> 
-               <li class="list-group-item" ng-repeat="movil in $ctrl.comprarMovil() track by $index">{{movil.id}}</li> 
+               <li class="list-group-item" ng-repeat="(key,movil) in $ctrl.comprarMovil()">{{movil.id}} x {{movil.cantidad}}</li> 
             </ul>
         </div>
   </div> <!-- end row -->

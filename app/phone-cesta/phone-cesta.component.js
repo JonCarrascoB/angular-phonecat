@@ -13,11 +13,9 @@ angular.
         self.comprarMovil = function(){
             return compraMovil.getProducto();
         }
-
         self.eliminar = function(movil){
-            console.trace('se hace click para eliminar el movil comprado %o', movil);
+          console.trace('se hace click para eliminar el movil comprado %o', movil);
         }
-
       }
     ]
-  });
+  })

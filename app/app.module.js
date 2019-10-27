@@ -9,5 +9,6 @@ angular.module('phonecatApp', [
   'phoneList',
   'phoneComparador',
   'phoneComparadorCard',
-  'phoneCesta'
+  'phoneCesta',
+  'phoneNuevo'
 ]);

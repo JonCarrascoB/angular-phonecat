@@ -34,9 +34,7 @@ angular.
       return q.promise;
     }
 
-
-
-      service.crear = function(movil){
+    service.crear = function(movil){
         let url = endpoint;
         console.trace('POST ' + endpoint);
         let body = {"age": movil.age, 
@@ -57,7 +55,7 @@ angular.
                       "wifi": movil.wifi
                     },
                     "display": {
-                      "touchScreen": movil.touchScreen
+                      "touchScreen":movil.touchScreen
                     },
                     "hardware": {
                       "accelerometer": movil.accelerometer,

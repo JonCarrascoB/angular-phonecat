@@ -1,15 +1,27 @@
 <h2>Nuevo Movil - Formulario</h2>
 <div class="container-fluid">
-    <form class="form-horizontal col-md-12">
+    <form class="form-horizontal col-md-12" name="phoneForm" novalidate>
         <h4>Caracteristicas generales:</h4>
-        <div class="form-group">
+        <div class="form-group" >
           <label for="phoneId" class="col-sm-2 control-label">Modelo:</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="phoneId" ng-model="movil.id" placeholder="Inserte el nombre del modelo del movil">
+          <div class="col-sm-4" ng-class="(phoneForm.phoneId.$valid || phoneForm.$pristine)?'has-success':'has-error'">
+            <input type="text" 
+                   class="form-control" 
+                   id="phoneId" name="phoneId"
+                   ng-model="movil.id" required placeholder="Inserte el nombre del modelo del movil">
+            <p class="help-block" ng-hide="phoneForm.phoneId.$valid || phoneForm.$pristine">
+              Este campo es necesario
+            </p>
           </div>
           <label for="phoneName" class="col-sm-2 control-label">Nombre:</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="phoneName" ng-model="movil.nombre" placeholder="Inserte el nombre del movil">
+          <div class="col-sm-4" ng-class="(phoneForm.phoneName.$valid || phoneForm.$pristine)?'has-success':'has-error'">
+            <input type="text" 
+                   class="form-control" 
+                   id="phoneName" name="phoneName"
+                   ng-model="movil.nombre" required placeholder="Inserte el nombre del movil">
+            <p class="help-block" ng-hide="phoneForm.phoneName.$valid || phoneForm.$pristine">
+              Este campo es necesario
+            </p>
           </div>
         </div>
         <div class="form-group">
@@ -29,16 +41,25 @@
         <h4>Caracteristicas tecnicas:</h4>
         <div class="form-group">
             <label for="phoneRam" class="col-sm-2 control-label">RAM:</label>
-            <div class="col-sm-1">
-              <input type="number" class="form-control" id="phoneRam" ng-model="movil.ram" placeholder="0">
+            <div class="col-sm-1 {{(phoneForm.phoneRam.$valid || phoneForm.$pristine)?'has-success':'has-error'}}">
+              <input type="number" name="phoneRam" class="form-control" id="phoneRam" required ng-model="movil.ram" placeholder="0">
+              <p class="help-block" ng-hide="phoneForm.phoneRam.$valid || phoneForm.$pristine">
+                Este campo es necesario
+              </p>
             </div>
             <label for="phoneFlash" class="col-sm-2 control-label">Flash:</label>
-            <div class="col-sm-1">
-              <input type="number" class="form-control" id="phoneFlash" ng-model="movil.flash" placeholder="0">
+            <div class="col-sm-1 {{(phoneForm.phoneFlash.$valid || phoneForm.$pristine)?'has-success':'has-error'}}">
+              <input type="number" name="phoneFlash" class="form-control" id="phoneFlash" required ng-model="movil.flash" placeholder="0">
+              <p class="help-block" ng-hide="phoneForm.phoneFlash.$valid || phoneForm.$pristine">
+                Este campo es necesario
+              </p>
             </div>
             <label for="phoneAge" class="col-sm-3 control-label">Años desde la entrada en servicio:</label>
-            <div class="col-sm-1">
-              <input type="number" class="form-control" id="phoneAge" ng-model="movil.age" placeholder="0">
+            <div class="col-sm-1 {{(phoneForm.phoneAge.$valid || phoneForm.$pristine)?'has-success':'has-error'}}">
+              <input type="number" name="phoneAge" class="form-control" id="phoneAge" required ng-model="movil.age" placeholder="0">
+              <p class="help-block" ng-hide="phoneForm.phoneAge.$valid || phoneForm.$pristine">
+                Este campo es necesario
+              </p>
             </div>
         </div>
         <div class="form-group">
@@ -68,22 +89,22 @@
         <div class="form-group col-sm-2"></div>
         <div class="form-group col-sm-10">
             <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox1" ng-model="movil.gps" value="true"> GPS
+                <input type="checkbox" id="inlineCheckbox1" ng-model="movil.gps" ng-value="true"> GPS
               </label>
               <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox2" ng-model="movil.infrared" value="true"> Infrared
+                <input type="checkbox" id="inlineCheckbox2" ng-model="movil.infrared" ng-value="true"> Infrared
               </label>
               <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox3" ng-model="movil.touchScreen" value="true"> Pantalle tactil
+                <input type="checkbox" id="inlineCheckbox3" ng-model="movil.touchScreen" ng-value="true"> Pantalla tactil
               </label>
               <label class="checkbox-inline">
-                  <input type="checkbox" id="inlineCheckbox4" ng-model="movil.accelerometer" value="true"> Acelerometro
+                  <input type="checkbox" id="inlineCheckbox4" ng-model="movil.accelerometer" ng-value="true"> Acelerometro
               </label>
               <label class="checkbox-inline">
-                  <input type="checkbox" id="inlineCheckbox5" ng-model="movil.fmRadio" value="true"> Radio FM
+                  <input type="checkbox" id="inlineCheckbox5" ng-model="movil.fmRadio" ng-value="true"> Radio FM
               </label>
               <label class="checkbox-inline">
-                  <input type="checkbox" id="inlineCheckbox6" ng-model="movil.physicalKeyboard" value="true"> Teclado fisico
+                  <input type="checkbox" id="inlineCheckbox6" ng-model="movil.physicalKeyboard" ng-value="true"> Teclado fisico
               </label>
         </div>
         <div class="form-group">
@@ -115,7 +136,7 @@
         <hr>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-success" ng-click="$ctrl.guardar(movil)">Guardar</button>
+            <button type="submit" class="btn btn-success" ng-disabled="phoneForm.$invalid" ng-click="$ctrl.guardar(movil)">Guardar</button>
           </div>
         </div>
       </form>

@@ -5,8 +5,14 @@
         <div class="col-md-2">
           <h4>Listado Movil</h4>
           <p>
-              Search:
+              Busqueda por modelo:
               <input ng-model="$ctrl.query.id"/>
+          </p>
+          <p>
+            <label for="resolucion" class="control-label">Resolución de la camara:</label>
+            <select class="form-control" id="resolucion" ng-model="$ctrl.query.camera.primary">
+              <option ng-repeat="res in $ctrl.resolute" value="{{res}}" >{{res}}</option>
+            </select>
           </p>
           <ul class="list-group">
               <li class="list-group-item" 

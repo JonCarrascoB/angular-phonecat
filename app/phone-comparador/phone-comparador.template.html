@@ -1,25 +1,39 @@
 <h2>Comparador</h2>
 <div class="container-fluid">
   <div class="row">
-      <!-- 1ยบ columna -->
+    <!-- 1 columna -->
         <div class="col-md-2">
           <h4>Listado Movil</h4>
           <p>
               Busqueda por modelo:
-              <input ng-model="$ctrl.query.id"/>
+              <input type="text" ng-model="busqueda.id" placeholder="Inserte el movil a buscar"/>
+               
+              <select ng-model="$ctrl.filtro.atributo">
+                <option value="ram">RAM</option>
+                <option value="flash">FLASH</option>
+              </select>
+      
+              <br>
+              <label>MIN {{$ctrl.filtro.min}}</label>
+              <input type="range" ng-model="$ctrl.filtro.min" step="512" max="2048" min="0">
+      
+              <label>MAX {{$ctrl.filtro.max}}</label>
+              <input type="range" ng-model="$ctrl.filtro.max" step="2048" max="32000" min="0">
+              
           </p>
           <p>
             <label for="resolucion" class="control-label">Resolución de la camara:</label>
-            <select class="form-control" id="resolucion" ng-model="$ctrl.query.camera.primary">
+            <select class="form-control" id="resolucion" ng-model="busqueda.camera.primary">
               <option ng-repeat="res in $ctrl.resolute" value="{{res}}" >{{res}}</option>
             </select>
           </p>
           <ul class="list-group">
               <li class="list-group-item" 
-                  ng-repeat="phone in $ctrl.phones | filter:$ctrl.query"
+                  ng-repeat="phone in $ctrl.phones | filter:busqueda | filtroTelefonos:$ctrl.filtro"
                   ng-click="$ctrl.seleccionar(phone)">
                       <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" class="responsive">
-                      {{phone.name}}
+                      {{phone.name}} <br>
+                      {{phone.storage.flash}} - {{phone.storage.ram}}
                       <div class="alert alert-danger alert-dismissible" role="alert" ng-show="($ctrl.alertaId == phone.id)">
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                           <strong>Atencion</strong> Este telefono quiere ser comprado.
@@ -28,15 +42,15 @@
           </ul>
           
         </div> 
-      <!-- 2ยบ columna -->
+      <!-- 2 columna -->
         <div class="col-md-4">
           <phone-comparador-card mostrar="$ctrl.phone1" comparar="$ctrl.phone2"></phone-comparador-card>
         </div>
-          <!-- 3ยบ columna -->
+      <!--  columna -->
         <div class="col-md-4">
           <phone-comparador-card mostrar="$ctrl.phone2" comparar="$ctrl.phone1"></phone-comparador-card>
         </div>
-        <!-- 4 columna -->
+      <!-- 4 columna -->
         <div class="col-md-2">
             <h4>Moviles comprados</h4>
             <ul class="list-group"> 

@@ -1,15 +1,15 @@
 <div class="phone-images">
-  <img ng-src="{{img}}" class="movil"
+  <img ng-src="{{img}}" class="phone"
       ng-class="{selected: img === $ctrl.mainImageUrl}"
-      ng-repeat="img in $ctrl.movil.images" />
+      ng-repeat="img in $ctrl.phone.images" />
 </div>
 
-<h1>{{$ctrl.movil.name}}</h1>
+<h1>{{$ctrl.phone.name}} <a ng-href="index.html#!/editar/{{$ctrl.phone.id}}"> Editar</a></h1>
 
-<p>{{$ctrl.movil.description}}</p>
+<p>{{$ctrl.phone.description}}</p>
 
 <ul class="phone-thumbs">
-  <li ng-repeat="img in $ctrl.movil.images">
+  <li ng-repeat="img in $ctrl.phone.images">
     <img ng-src="{{img}}" ng-click="$ctrl.setImage(img)" />
   </li>
 </ul>
@@ -19,99 +19,99 @@
     <span>Availability and Networks</span>
     <dl>
       <dt>Availability</dt>
-      <dd ng-repeat="availability in $ctrl.movil.availability">{{availability}}</dd>
+      <dd ng-repeat="availability in $ctrl.phone.availability">{{availability}}</dd>
     </dl>
   </li>
   <li>
     <span>Battery</span>
     <dl>
       <dt>Type</dt>
-      <dd>{{$ctrl.movil.battery.type}}</dd>
+      <dd>{{$ctrl.phone.battery.type}}</dd>
       <dt>Talk Time</dt>
-      <dd>{{$ctrl.movil.battery.talkTime}}</dd>
+      <dd>{{$ctrl.phone.battery.talkTime}}</dd>
       <dt>Standby time (max)</dt>
-      <dd>{{$ctrl.movil.battery.standbyTime}}</dd>
+      <dd>{{$ctrl.phone.battery.standbyTime}}</dd>
     </dl>
   </li>
   <li>
     <span>Storage and Memory</span>
     <dl>
       <dt>RAM</dt>
-      <dd>{{$ctrl.movil.storage.ram}}</dd>
+      <dd>{{$ctrl.phone.storage.ram}}</dd>
       <dt>Internal Storage</dt>
-      <dd>{{$ctrl.movil.storage.flash}}</dd>
+      <dd>{{$ctrl.phone.storage.flash}}</dd>
     </dl>
   </li>
   <li>
     <span>Connectivity</span>
     <dl>
       <dt>Network Support</dt>
-      <dd>{{$ctrl.movil.connectivity.cell}}</dd>
+      <dd>{{$ctrl.phone.connectivity.cell}}</dd>
       <dt>WiFi</dt>
-      <dd>{{$ctrl.movil.connectivity.wifi}}</dd>
+      <dd>{{$ctrl.phone.connectivity.wifi}}</dd>
       <dt>Bluetooth</dt>
-      <dd>{{$ctrl.movil.connectivity.bluetooth}}</dd>
+      <dd>{{$ctrl.phone.connectivity.bluetooth}}</dd>
       <dt>Infrared</dt>
-      <dd>{{$ctrl.movil.connectivity.infrared | checkmark}}</dd>
+      <dd>{{$ctrl.phone.connectivity.infrared | checkmark}}</dd>
       <dt>GPS</dt>
-      <dd>{{$ctrl.movil.connectivity.gps | checkmark}}</dd>
+      <dd>{{$ctrl.phone.connectivity.gps | checkmark}}</dd>
     </dl>
   </li>
   <li>
     <span>Android</span>
     <dl>
       <dt>OS Version</dt>
-      <dd>{{$ctrl.movil.android.os}}</dd>
+      <dd>{{$ctrl.phone.android.os}}</dd>
       <dt>UI</dt>
-      <dd>{{$ctrl.movil.android.ui}}</dd>
+      <dd>{{$ctrl.phone.android.ui}}</dd>
     </dl>
   </li>
   <li>
     <span>Size and Weight</span>
     <dl>
       <dt>Dimensions</dt>
-      <dd ng-repeat="dim in $ctrl.movil.sizeAndWeight.dimensions">{{dim}}</dd>
+      <dd ng-repeat="dim in $ctrl.phone.sizeAndWeight.dimensions">{{dim}}</dd>
       <dt>Weight</dt>
-      <dd>{{$ctrl.movil.sizeAndWeight.weight}}</dd>
+      <dd>{{$ctrl.phone.sizeAndWeight.weight}}</dd>
     </dl>
   </li>
   <li>
     <span>Display</span>
     <dl>
       <dt>Screen size</dt>
-      <dd>{{$ctrl.movil.display.screenSize}}</dd>
+      <dd>{{$ctrl.phone.display.screenSize}}</dd>
       <dt>Screen resolution</dt>
-      <dd>{{$ctrl.movil.display.screenResolution}}</dd>
+      <dd>{{$ctrl.phone.display.screenResolution}}</dd>
       <dt>Touch screen</dt>
-      <dd>{{$ctrl.movil.display.touchScreen | checkmark}}</dd>
+      <dd>{{$ctrl.phone.display.touchScreen | checkmark}}</dd>
     </dl>
   </li>
   <li>
     <span>Hardware</span>
     <dl>
       <dt>CPU</dt>
-      <dd>{{$ctrl.movil.hardware.cpu}}</dd>
+      <dd>{{$ctrl.phone.hardware.cpu}}</dd>
       <dt>USB</dt>
-      <dd>{{$ctrl.movil.hardware.usb}}</dd>
+      <dd>{{$ctrl.phone.hardware.usb}}</dd>
       <dt>Audio / headphone jack</dt>
-      <dd>{{$ctrl.movil.hardware.audioJack}}</dd>
+      <dd>{{$ctrl.phone.hardware.audioJack}}</dd>
       <dt>FM Radio</dt>
-      <dd>{{$ctrl.movil.hardware.fmRadio | checkmark}}</dd>
+      <dd>{{$ctrl.phone.hardware.fmRadio | checkmark}}</dd>
       <dt>Accelerometer</dt>
-      <dd>{{$ctrl.movil.hardware.accelerometer | checkmark}}</dd>
+      <dd>{{$ctrl.phone.hardware.accelerometer | checkmark}}</dd>
     </dl>
   </li>
   <li>
     <span>Camera</span>
     <dl>
       <dt>Primary</dt>
-      <dd>{{$ctrl.movil.camera.primary}}</dd>
+      <dd>{{$ctrl.phone.camera.primary}}</dd>
       <dt>Features</dt>
-      <dd>{{$ctrl.movil.camera.features.join(', ')}}</dd>
+      <dd>{{$ctrl.phone.camera.features.join(', ')}}</dd>
     </dl>
   </li>
   <li>
     <span>Additional Features</span>
-    <dd>{{$ctrl.movil.additionalFeatures}}</dd>
+    <dd>{{$ctrl.phone.additionalFeatures}}</dd>
   </li>
 </ul>

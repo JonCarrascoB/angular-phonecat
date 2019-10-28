@@ -20,6 +20,9 @@ angular.
         when('/nuevo', {
           template: '<phone-nuevo></phone-nuevo>'
         }).
+        when('/editar/:phoneId', {
+          template: '<phone-nuevo></phone-nuevo>'
+        }).
         when('/cesta', {
           template: '<phone-cesta></phone-cesta>'
         }).

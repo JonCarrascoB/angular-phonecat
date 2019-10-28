@@ -11,6 +11,12 @@ angular.
 
         var self = this;
 
+        self.filtro = {
+          "atributo": "ram",         
+          "min": 0,
+          "max": 32000
+        };
+
         self.phones = [];
         self.phone1 = {};
         self.phone2 = {};
@@ -47,9 +53,28 @@ angular.
           self.resolute = self.resolTemp.map(e => e.camera.primary).filter((v,i,a)=>a.indexOf(v)===i);
         };
 
-       
-
-
       }
     ]
   });
+
+  angular.module('phoneComparador').filter('filtroTelefonos', function () {
+    return function( items, filtroObject){
+      console.log('filtroTelefonos filtro=%o', filtroObject);
+
+      if ( items ){
+
+        return items.filter((telefono)=> {
+          if(telefono.storage){
+            let value = telefono.storage[filtroObject.atributo];
+            //console.debug("telefono=%s value=%s min%s max=%s", telefono.id, value, min, max );
+            return value >= filtroObject.min && value <= filtroObject.max ;
+          }else{
+            return true;
+          }
+          
+        });
+      }  
+      // return items;
+    }
+  });
+  
